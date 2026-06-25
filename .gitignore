@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+
+# Editors
+.vscode/
+.idea/
+
+# Optimizer generated artifacts (provenance differs per run; not source)
+runs/

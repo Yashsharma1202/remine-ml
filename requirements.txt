@@ -1,0 +1,16 @@
+# ML_regime dependencies
+#
+# Existing stack (used by the dashboard pipeline: nifty_*.py, start.py,
+# Consensus_predictor .py, Hit_ratio_backtester .py, generate_summary*.py)
+numpy
+pandas
+scipy
+TA-Lib
+numba
+scikit-learn
+yfinance
+
+# Feature 001-indicator-optimization
+optuna        # derivative-free (TPE) search over indicator parameters
+jsonschema    # contract tests: artifact / run-summary schema conformance
+pytest        # unit / contract / integration tests
