@@ -1,0 +1,24 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+*.swp
+
+# Virtual environments
+.venv
+
+# Rust target
+core/target/
+
+# Toolchain installer (10MB binary, should never be committed)
+rustup-init.exe
+
+# Node
+frontend/**/node_modules/
+.next/
+
+# Local tooling
+.claude/
