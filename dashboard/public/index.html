@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NIFTY Indicator-Consensus Dashboard</title>
+<style>
+  :root{
+    --bg:#09090b; --panel:#18181b; --panel2:#0f0f12; --bd:#27272a; --bd2:#3f3f46;
+    --ink:#e4e4e7; --mut:#a1a1aa; --mut2:#71717a;
+    --acc:#818cf8; --acc2:#6366f1; --green:#22c55e; --red:#ef4444; --amber:#eab308;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:ui-sans-serif,system-ui,"Segoe UI",Roboto,Arial,sans-serif;font-size:14px}
+  a{color:var(--acc);text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:22px 18px 60px}
+  header{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:6px}
+  h1{font-size:22px;margin:0;font-weight:700;color:#fff}
+  .sub{color:var(--mut);font-size:12.5px}
+  .muted{color:var(--mut2)}
+  .panel{background:var(--panel);border:1px solid var(--bd);border-radius:14px;padding:16px;margin-top:16px}
+  .ptitle{font-size:13px;font-weight:700;color:var(--ink);margin:0 0 2px}
+  .pdesc{font-size:11.5px;color:var(--mut2);margin:0 0 12px}
+  /* breadth */
+  .breadth{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .stat{background:var(--panel2);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+  .stat .k{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut2)}
+  .stat .v{font-size:24px;font-weight:800;margin-top:4px}
+  /* cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--bd);border-radius:14px;padding:15px;cursor:pointer;
+    transition:border-color .15s,transform .05s}
+  .card:hover{border-color:var(--acc2)}
+  .card:active{transform:translateY(1px)}
+  .row{display:flex;align-items:center;justify-content:space-between}
+  .sym{font-weight:800;font-size:16px;color:#fff}
+  .co{font-size:11px;color:var(--mut2)}
+  .price{font-weight:700;font-size:16px}
+  .chg{font-size:12px;font-weight:600}
+  .badge{display:inline-block;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.03em}
+  .pill{display:inline-block;padding:2px 7px;border-radius:6px;font-size:10.5px;font-weight:700}
+  .bar{height:8px;border-radius:6px;background:#27272a;overflow:hidden;display:flex;margin-top:10px}
+  .bar > span{display:block;height:100%}
+  .kv{display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-top:1px solid #1f1f23}
+  .kv .k{color:var(--mut)}
+  .ind{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+  .ind .cell{background:var(--panel2);border:1px solid var(--bd);border-radius:8px;padding:6px 8px;text-align:center}
+  .ind .cell .n{font-size:10px;color:var(--mut2);text-transform:uppercase}
+  .ind .cell .x{font-size:14px;font-weight:700;margin-top:2px}
+  /* modal */
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:flex-start;justify-content:center;
+    padding:30px 14px;overflow:auto;z-index:50}
+  .overlay.on{display:flex}
+  .modal{background:var(--panel);border:1px solid var(--bd2);border-radius:16px;max-width:920px;width:100%;padding:20px}
+  .close{float:right;cursor:pointer;color:var(--mut);font-size:20px;line-height:1;border:none;background:none}
+  .cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:6px}
+  .cat{background:var(--panel2);border:1px solid var(--bd);border-radius:10px;padding:10px}
+  .cat h4{margin:0 0 6px;font-size:12px}
+  .sig{display:flex;justify-content:space-between;font-size:11px;padding:2px 0;color:var(--mut)}
+  .tgt{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-top:8px}
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th,td{text-align:left;padding:4px 6px}
+  thead th{color:var(--mut);border-bottom:1px solid var(--bd)}
+  .err{color:var(--red);padding:30px;text-align:center}
+  footer{margin-top:28px;color:var(--mut2);font-size:11px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>NIFTY Indicator-Consensus Dashboard</h1>
+      <div class="sub">Multi-indicator consensus (RSI · MACD · ADX/DMI · Bollinger · Supertrend · z-score) · honest, computed from price history</div>
+    </div>
+    <div class="sub" id="asof">loading…</div>
+  </header>
+
+  <div class="panel">
+    <div class="ptitle">Market breadth</div>
+    <div class="pdesc">Across all instruments below — how many the consensus reads bullish / bearish / neutral.</div>
+    <div class="breadth" id="breadth"></div>
+  </div>
+
+  <div class="panel">
+    <div class="ptitle">Instruments — click any card for the full breakdown</div>
+    <div class="pdesc">Each card: latest price, consensus direction + confidence, bullish-vs-bearish vote share, and 4 key indicators.</div>
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <footer id="foot"></footer>
+</div>
+
+<div class="overlay" id="overlay"><div class="modal" id="modal"></div></div>
+
+<script>
+const F={ // formatters
+  num:(x,d=2)=>x==null||isNaN(x)?'—':Number(x).toLocaleString(undefined,{maximumFractionDigits:d,minimumFractionDigits:d}),
+  pct:(x,d=0)=>x==null||isNaN(x)?'—':(Number(x)*100).toFixed(d)+'%',
+};
+const dirColor=d=>d==='LONG'?'var(--green)':d==='SHORT'?'var(--red)':'var(--amber)';
+const dirBg=d=>d==='LONG'?'rgba(34,197,94,.15)':d==='SHORT'?'rgba(239,68,68,.15)':'rgba(234,179,8,.15)';
+
+function breadth(data){
+  const c={LONG:0,SHORT:0,NEUTRAL:0};
+  data.forEach(s=>c[s.prediction.direction]=(c[s.prediction.direction]||0)+1);
+  const avg=data.reduce((a,s)=>a+(s.consensus||0),0)/Math.max(1,data.length);
+  const el=document.getElementById('breadth');
+  const cell=(k,v,col)=>`<div class="stat"><div class="k">${k}</div><div class="v" style="color:${col}">${v}</div></div>`;
+  el.innerHTML=
+    cell('Instruments',data.length,'#fff')+
+    cell('Bullish (LONG)',c.LONG,'var(--green)')+
+    cell('Bearish (SHORT)',c.SHORT,'var(--red)')+
+    cell('Avg consensus',(avg>=0?'+':'')+avg.toFixed(2),avg>=0?'var(--green)':'var(--red)');
+}
+
+function card(s){
+  const p=s.prediction, ind=s.indicators;
+  const chgc=s.change>=0?'var(--green)':'var(--red)';
+  const bull=p.bullish_pct||0, bear=p.bearish_pct||0, neu=Math.max(0,100-bull-bear);
+  return `<div class="card" data-sym="${s.symbol}">
+    <div class="row">
+      <div><div class="sym">${s.symbol}</div><div class="co">${s.company||''}</div></div>
+      <div style="text-align:right">
+        <div class="price">${F.num(s.price)}</div>
+        <div class="chg" style="color:${chgc}">${s.change>=0?'▲':'▼'} ${F.num(Math.abs(s.change))}</div>
+      </div>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <span class="badge" style="color:${dirColor(p.direction)};background:${dirBg(p.direction)}">${p.direction}</span>
+      <span class="muted" style="font-size:12px">confidence <b style="color:var(--ink)">${F.pct(p.confidence)}</b></span>
+    </div>
+    <div class="bar" title="bullish ${bull}% / bearish ${bear}%">
+      <span style="width:${bull}%;background:var(--green)"></span>
+      <span style="width:${neu}%;background:#3f3f46"></span>
+      <span style="width:${bear}%;background:var(--red)"></span>
+    </div>
+    <div class="ind">
+      ${cell('RSI',ind.rsi,ind.rsi>70?'var(--red)':ind.rsi<30?'var(--green)':'var(--ink)')}
+      ${cell('ADX',ind.adx,ind.adx>25?'var(--acc)':'var(--mut)')}
+      ${cell('MACD',F.num(ind.macd,1),ind.macd>=0?'var(--green)':'var(--red)')}
+      ${cell('BB %',F.num(ind.bb_pos,2),'var(--ink)')}
+    </div>
+  </div>`;
+  function cell(n,x,col){return `<div class="cell"><div class="n">${n}</div><div class="x" style="color:${col||'var(--ink)'}">${x}</div></div>`}
+}
+
+function candleSVG(hist){
+  if(!hist||!hist.length) return '';
+  const h=hist.slice(-70), W=860, H=240, pad=6;
+  const lo=Math.min(...h.map(c=>c.low)), hi=Math.max(...h.map(c=>c.high)), rng=(hi-lo)||1;
+  const y=v=>pad+(H-2*pad)*(1-(v-lo)/rng), bw=(W-2*pad)/h.length;
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" preserveAspectRatio="none" style="background:var(--panel2);border:1px solid var(--bd);border-radius:8px">`;
+  h.forEach((c,i)=>{
+    const x=pad+i*bw+bw/2, up=c.close>=c.open, col=up?'#22c55e':'#ef4444';
+    s+=`<line x1="${x}" y1="${y(c.high)}" x2="${x}" y2="${y(c.low)}" stroke="${col}" stroke-width="1"/>`;
+    const yo=y(c.open), yc=y(c.close), top=Math.min(yo,yc), bh=Math.max(1,Math.abs(yc-yo));
+    s+=`<rect x="${x-bw*0.3}" y="${top}" width="${Math.max(1,bw*0.6)}" height="${bh}" fill="${col}"/>`;
+  });
+  s+=`</svg>`; return s;
+}
+
+function modal(s){
+  const p=s.prediction, ind=s.indicators, hr=s.hit_ratio||{};
+  const cats=Object.entries(s.indicator_breakdown||{}).map(([cat,b])=>{
+    const sigs=Object.entries(b.signals||{}).map(([k,v])=>
+      `<div class="sig"><span>${k}</span><span style="color:${v>0?'var(--green)':v<0?'var(--red)':'var(--mut2)'};font-weight:700">${v>0?'BUY':v<0?'SELL':'·'}</span></div>`).join('');
+    return `<div class="cat"><h4>${cat} <span class="muted" style="font-weight:400">(${b.buy}↑ ${b.sell}↓ ${b.neutral}·)</span></h4>${sigs}</div>`;
+  }).join('');
+  const tgt=(n,v,col)=>`<div class="stat"><div class="k">${n}</div><div class="v" style="font-size:16px;color:${col||'var(--ink)'}">${F.num(v)}</div></div>`;
+  document.getElementById('modal').innerHTML=`
+    <button class="close" onclick="hide()">✕</button>
+    <div class="sym" style="font-size:20px">${s.symbol} <span class="co" style="font-size:13px">${s.company||''}</span></div>
+    <div class="row" style="margin:8px 0 4px">
+      <div><span class="badge" style="color:${dirColor(p.direction)};background:${dirBg(p.direction)}">${p.direction}</span>
+        <span class="muted" style="margin-left:8px">confidence ${F.pct(p.confidence)} · consensus ${(s.consensus>=0?'+':'')+F.num(s.consensus)} · bull ${F.num(p.bullish_pct,0)}% / bear ${F.num(p.bearish_pct,0)}%</span></div>
+      <div class="price">${F.num(s.price)}</div>
+    </div>
+    ${candleSVG(s.history)}
+    <div class="ptitle" style="margin-top:14px">Indicator breakdown by category</div>
+    <div class="cats">${cats}</div>
+    <div class="ptitle" style="margin-top:14px">Prediction targets (ATR-based)</div>
+    <div class="tgt">
+      ${tgt('Target 1',p.target_1,'var(--green)')}${tgt('Target 2',p.target_2,'var(--green)')}
+      ${tgt('Target 3',p.target_3,'var(--green)')}${tgt('Stop loss',p.stop_loss,'var(--red)')}
+    </div>
+    <div class="ptitle" style="margin-top:14px">Backtest hit ratio (consensus vs forward return)</div>
+    <table><thead><tr><th>Horizon</th><th>Hit ratio</th><th>Signals</th></tr></thead><tbody>
+      <tr><td>5-day</td><td style="font-weight:700">${F.pct(hr.overall_5d)}</td><td>${hr.signal_count_5d??'—'}</td></tr>
+      <tr><td>10-day</td><td style="font-weight:700">${F.pct(hr.overall_10d)}</td><td>${hr.total_signals??'—'}</td></tr>
+    </tbody></table>
+    <div class="muted" style="font-size:11px;margin-top:10px">Honest note: this is a transparent rule-based consensus, backtested on each instrument's own history (no look-ahead in the hit-ratio).</div>`;
+  document.getElementById('overlay').classList.add('on');
+}
+function hide(){document.getElementById('overlay').classList.remove('on')}
+document.getElementById('overlay').addEventListener('click',e=>{if(e.target.id==='overlay')hide()});
+
+fetch('summary.json?t='+Date.now()).then(r=>r.ok?r.json():Promise.reject(r.status)).then(data=>{
+  if(!Array.isArray(data)||!data.length){document.getElementById('grid').innerHTML='<div class="err">summary.json is empty.</div>';return;}
+  document.getElementById('asof').textContent=`${data.length} instruments · consensus dashboard`;
+  breadth(data);
+  document.getElementById('grid').innerHTML=data.map(card).join('');
+  document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>{
+    modal(data.find(s=>s.symbol===c.dataset.sym));}));
+  document.getElementById('foot').textContent='Run update_dashboard.py to populate the full Nifty 50 / Nifty 500 set. Generated from local index data.';
+}).catch(e=>{document.getElementById('grid').innerHTML=`<div class="err">Could not load summary.json (${e}). Run make_index_summary.py first.</div>`});
+</script>
+</body>
+</html>
