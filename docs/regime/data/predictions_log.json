@@ -1,0 +1,465 @@
+{
+  "updated": "2026-06-29 06:34 UTC",
+  "tracks": [
+    {
+      "key": "intraday_5m",
+      "label": "Intraday 5-min",
+      "resolved": 2008,
+      "hit_all": 75.4,
+      "hit_30": 70.0,
+      "hit_10": 90.0,
+      "recent": [
+        {
+          "x": "2026-06-18 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 76.7
+        },
+        {
+          "x": "2026-06-17 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 76.7
+        },
+        {
+          "x": "2026-06-16 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 76.3
+        },
+        {
+          "x": "2026-06-15 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 66.1
+        },
+        {
+          "x": "2026-06-12 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 54.8
+        },
+        {
+          "x": "2026-06-11 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 73.5
+        },
+        {
+          "x": "2026-06-10 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 69.1
+        },
+        {
+          "x": "2026-06-09 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 67.9
+        },
+        {
+          "x": "2026-06-08 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 54.8
+        },
+        {
+          "x": "2026-06-05 09:15",
+          "pred": "low-vol",
+          "actual": "high-vol",
+          "correct": false,
+          "conf": 75.0
+        },
+        {
+          "x": "2026-06-04 09:15",
+          "pred": "low-vol",
+          "actual": "high-vol",
+          "correct": false,
+          "conf": 52.1
+        },
+        {
+          "x": "2026-06-03 09:15",
+          "pred": "high-vol",
+          "actual": "high-vol",
+          "correct": true,
+          "conf": 62.4
+        },
+        {
+          "x": "2026-06-02 09:15",
+          "pred": "low-vol",
+          "actual": "high-vol",
+          "correct": false,
+          "conf": 72.4
+        },
+        {
+          "x": "2026-06-01 09:15",
+          "pred": "high-vol",
+          "actual": "high-vol",
+          "correct": true,
+          "conf": 74.4
+        },
+        {
+          "x": "2026-05-29 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 76.7
+        }
+      ]
+    },
+    {
+      "key": "intraday_15m",
+      "label": "Intraday 15-min",
+      "resolved": 2008,
+      "hit_all": 76.2,
+      "hit_30": 73.3,
+      "hit_10": 80.0,
+      "recent": [
+        {
+          "x": "2026-06-18 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 82.0
+        },
+        {
+          "x": "2026-06-17 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 82.0
+        },
+        {
+          "x": "2026-06-16 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 77.3
+        },
+        {
+          "x": "2026-06-15 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 63.5
+        },
+        {
+          "x": "2026-06-12 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 63.4
+        },
+        {
+          "x": "2026-06-11 09:15",
+          "pred": "low-vol",
+          "actual": "high-vol",
+          "correct": false,
+          "conf": 66.9
+        },
+        {
+          "x": "2026-06-10 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 72.0
+        },
+        {
+          "x": "2026-06-09 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 70.2
+        },
+        {
+          "x": "2026-06-08 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 57.3
+        },
+        {
+          "x": "2026-06-05 09:15",
+          "pred": "low-vol",
+          "actual": "high-vol",
+          "correct": false,
+          "conf": 68.6
+        },
+        {
+          "x": "2026-06-04 09:15",
+          "pred": "high-vol",
+          "actual": "high-vol",
+          "correct": true,
+          "conf": 56.9
+        },
+        {
+          "x": "2026-06-03 09:15",
+          "pred": "high-vol",
+          "actual": "high-vol",
+          "correct": true,
+          "conf": 64.5
+        },
+        {
+          "x": "2026-06-02 09:15",
+          "pred": "low-vol",
+          "actual": "high-vol",
+          "correct": false,
+          "conf": 69.4
+        },
+        {
+          "x": "2026-06-01 09:15",
+          "pred": "high-vol",
+          "actual": "high-vol",
+          "correct": true,
+          "conf": 64.5
+        },
+        {
+          "x": "2026-05-29 09:15",
+          "pred": "low-vol",
+          "actual": "low-vol",
+          "correct": true,
+          "conf": 79.3
+        }
+      ]
+    },
+    {
+      "key": "weekly",
+      "label": "Weekly",
+      "resolved": 1315,
+      "hit_all": 57.9,
+      "hit_30": 66.7,
+      "hit_10": 50.0,
+      "recent": [
+        {
+          "x": "2026-05-29",
+          "pred": "bear",
+          "actual": "bear",
+          "correct": true,
+          "conf": 76.7
+        },
+        {
+          "x": "2026-05-27",
+          "pred": "bear",
+          "actual": "bear",
+          "correct": true,
+          "conf": 75.7
+        },
+        {
+          "x": "2026-05-26",
+          "pred": "bear",
+          "actual": "bear",
+          "correct": true,
+          "conf": 79.9
+        },
+        {
+          "x": "2026-05-25",
+          "pred": "bear",
+          "actual": "sideways",
+          "correct": false,
+          "conf": 69.4
+        },
+        {
+          "x": "2026-05-22",
+          "pred": "bear",
+          "actual": "bear",
+          "correct": true,
+          "conf": 80.0
+        },
+        {
+          "x": "2026-05-21",
+          "pred": "bear",
+          "actual": "sideways",
+          "correct": false,
+          "conf": 79.5
+        },
+        {
+          "x": "2026-05-20",
+          "pred": "bear",
+          "actual": "sideways",
+          "correct": false,
+          "conf": 81.7
+        },
+        {
+          "x": "2026-05-19",
+          "pred": "bear",
+          "actual": "sideways",
+          "correct": false,
+          "conf": 81.6
+        },
+        {
+          "x": "2026-05-18",
+          "pred": "bear",
+          "actual": "sideways",
+          "correct": false,
+          "conf": 76.1
+        },
+        {
+          "x": "2026-05-15",
+          "pred": "bear",
+          "actual": "bear",
+          "correct": true,
+          "conf": 75.8
+        },
+        {
+          "x": "2026-05-14",
+          "pred": "bear",
+          "actual": "bear",
+          "correct": true,
+          "conf": 77.8
+        },
+        {
+          "x": "2026-05-13",
+          "pred": "bear",
+          "actual": "bear",
+          "correct": true,
+          "conf": 86.4
+        },
+        {
+          "x": "2026-05-12",
+          "pred": "bear",
+          "actual": "bear",
+          "correct": true,
+          "conf": 87.5
+        },
+        {
+          "x": "2026-05-11",
+          "pred": "bear",
+          "actual": "bear",
+          "correct": true,
+          "conf": 79.2
+        },
+        {
+          "x": "2026-05-08",
+          "pred": "sideways",
+          "actual": "bear",
+          "correct": false,
+          "conf": 34.3
+        }
+      ]
+    },
+    {
+      "key": "monthly",
+      "label": "Monthly",
+      "resolved": 1495,
+      "hit_all": 73.6,
+      "hit_30": 90.0,
+      "hit_10": 70.0,
+      "recent": [
+        {
+          "x": "2026-05-06",
+          "pred": "high-vol",
+          "actual": "low-vol",
+          "correct": false,
+          "conf": 55.1
+        },
+        {
+          "x": "2026-05-05",
+          "pred": "high-vol",
+          "actual": "high-vol",
+          "correct": true,
+          "conf": 51.3
+        },
+        {
+          "x": "2026-05-04",
+          "pred": "high-vol",
+          "actual": "high-vol",
+          "correct": true,
+          "conf": 51.2
+        },
+        {
+          "x": "2026-04-30",
+          "pred": "high-vol",
+          "actual": "high-vol",
+          "correct": true,
+          "conf": 52.0
+        },
+        {
+          "x": "2026-04-29",
+          "pred": "low-vol",
+          "actual": "high-vol",
+          "correct": false,
+          "conf": 50.2
+        },
+        {
+          "x": "2026-04-28",
+          "pred": "high-vol",
+          "actual": "high-vol",
+          "correct": true,
+          "conf": 58.6
+        },
+        {
+          "x": "2026-04-27",
+          "pred": "high-vol",
+          "actual": "low-vol",
+          "correct": false,
+          "conf": 61.0
+        },
+        {
+          "x": "2026-04-24",
+          "pred": "high-vol",
+          "actual": "high-vol",
+          "correct": true,
+          "conf": 63.5
+        },
+        {
+          "x": "2026-04-23",
+          "pred": "high-vol",
+          "actual": "high-vol",
+          "correct": true,
+          "conf": 61.7
+        },
+        {
+          "x": "2026-04-22",
+          "pred": "high-vol",
+          "actual": "high-vol",
+          "correct": true,
+          "conf": 93.1
+        },
+        {
+          "x": "2026-04-21",
+          "pred": "high-vol",
+          "actual": "high-vol",
+          "correct": true,
+          "conf": 87.9
+        },
+        {
+          "x": "2026-04-20",
+          "pred": "high-vol",
+          "actual": "high-vol",
+          "correct": true,
+          "conf": 88.3
+        },
+        {
+          "x": "2026-04-17",
+          "pred": "high-vol",
+          "actual": "high-vol",
+          "correct": true,
+          "conf": 88.0
+        },
+        {
+          "x": "2026-04-16",
+          "pred": "high-vol",
+          "actual": "high-vol",
+          "correct": true,
+          "conf": 89.6
+        },
+        {
+          "x": "2026-04-15",
+          "pred": "high-vol",
+          "actual": "high-vol",
+          "correct": true,
+          "conf": 100.0
+        }
+      ]
+    }
+  ]
+}

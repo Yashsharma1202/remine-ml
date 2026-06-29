@@ -1,2 +1,2 @@
-:HL["/remine-ml/regime/_next/static/chunks/0p1u071s21ykg.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"mU-lfVnwylWZMeq-S9eyT"}
+:HL["/remine-ml/regime/_next/static/chunks/0e6wc~.yvlwsp.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"M-0uVMXTEE4XGB908YcAK"}
