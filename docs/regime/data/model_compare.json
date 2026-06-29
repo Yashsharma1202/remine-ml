@@ -1,0 +1,51 @@
+{
+  "target": "volatility regime (calm/volatile)",
+  "results": [
+    {
+      "horizon": "5d",
+      "n": 1510,
+      "baseline": 58.08,
+      "models": {
+        "HAR-RV": {
+          "acc": 65.1,
+          "brier": 0.2498
+        },
+        "XGBoost": {
+          "acc": 64.64,
+          "brier": 0.2243
+        },
+        "Persistence": {
+          "acc": 64.83,
+          "brier": 0.3517
+        },
+        "Ensemble": {
+          "acc": 64.64,
+          "brier": 0.2302
+        }
+      }
+    },
+    {
+      "horizon": "21d",
+      "n": 1495,
+      "baseline": 57.59,
+      "models": {
+        "HAR-RV": {
+          "acc": 60.74,
+          "brier": 0.2499
+        },
+        "XGBoost": {
+          "acc": 56.92,
+          "brier": 0.2441
+        },
+        "Persistence": {
+          "acc": 68.9,
+          "brier": 0.311
+        },
+        "Ensemble": {
+          "acc": 56.92,
+          "brier": 0.235
+        }
+      }
+    }
+  ]
+}
