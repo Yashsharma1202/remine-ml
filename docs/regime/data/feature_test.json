@@ -1,0 +1,58 @@
+{
+  "target": "volatility regime",
+  "results": [
+    {
+      "horizon": "5d",
+      "sets": [
+        {
+          "name": "A) base (HAR)",
+          "acc": 64.96,
+          "baseline": 54.69,
+          "delta_vs_A": 0.0,
+          "n": 1995
+        },
+        {
+          "name": "B) + overnight gap",
+          "acc": 65.26,
+          "baseline": 54.69,
+          "delta_vs_A": 0.3,
+          "n": 1995
+        },
+        {
+          "name": "C) + gap + range",
+          "acc": 65.21,
+          "baseline": 54.69,
+          "delta_vs_A": 0.25,
+          "n": 1995
+        }
+      ]
+    },
+    {
+      "horizon": "21d",
+      "sets": [
+        {
+          "name": "A) base (HAR)",
+          "acc": 73.23,
+          "baseline": 57.32,
+          "delta_vs_A": 0.0,
+          "n": 1980
+        },
+        {
+          "name": "B) + overnight gap",
+          "acc": 74.04,
+          "baseline": 57.32,
+          "delta_vs_A": 0.81,
+          "n": 1980
+        },
+        {
+          "name": "C) + gap + range",
+          "acc": 73.23,
+          "baseline": 57.32,
+          "delta_vs_A": 0.0,
+          "n": 1980
+        }
+      ]
+    }
+  ],
+  "verdict": "kept"
+}
