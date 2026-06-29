@@ -1,0 +1,86 @@
+{
+  "generated": "2026-06-29 04:16 UTC",
+  "asof": "2026-06-19",
+  "asof_close": 23960.8,
+  "display_from": "2026-06-29",
+  "days": [
+    {
+      "lead": 1,
+      "date": "2026-06-29",
+      "dir": "SIDEWAYS",
+      "dir_conf": 42.0,
+      "dir_acc": 40.3,
+      "dir_base": 39.7,
+      "dir_trust": "LOW",
+      "vol": "CALM",
+      "vol_conf": 55.099998474121094,
+      "vol_acc": 57.8,
+      "vol_base": 56.1
+    },
+    {
+      "lead": 2,
+      "date": "2026-06-30",
+      "dir": "SIDEWAYS",
+      "dir_conf": 38.099998474121094,
+      "dir_acc": 35.8,
+      "dir_base": 37.8,
+      "dir_trust": "LOW",
+      "vol": "CALM",
+      "vol_conf": 55.099998474121094,
+      "vol_acc": 57.5,
+      "vol_base": 56.1
+    },
+    {
+      "lead": 3,
+      "date": "2026-07-01",
+      "dir": "SIDEWAYS",
+      "dir_conf": 37.099998474121094,
+      "dir_acc": 34.3,
+      "dir_base": 37.4,
+      "dir_trust": "LOW",
+      "vol": "CALM",
+      "vol_conf": 56.70000076293945,
+      "vol_acc": 61.4,
+      "vol_base": 56.4
+    },
+    {
+      "lead": 5,
+      "date": "2026-07-03",
+      "dir": "BULLISH",
+      "dir_conf": 36.70000076293945,
+      "dir_acc": 37.5,
+      "dir_base": 39.5,
+      "dir_trust": "LOW",
+      "vol": "VOLATILE",
+      "vol_conf": 52.099998474121094,
+      "vol_acc": 64.3,
+      "vol_base": 56.2
+    },
+    {
+      "lead": 7,
+      "date": "2026-07-07",
+      "dir": "BULLISH",
+      "dir_conf": 39.599998474121094,
+      "dir_acc": 37.2,
+      "dir_base": 41.2,
+      "dir_trust": "LOW",
+      "vol": "VOLATILE",
+      "vol_conf": 55.400001525878906,
+      "vol_acc": 66.4,
+      "vol_base": 58.4
+    },
+    {
+      "lead": 10,
+      "date": "2026-07-10",
+      "dir": "BULLISH",
+      "dir_conf": 36.400001525878906,
+      "dir_acc": 34.1,
+      "dir_base": 42.4,
+      "dir_trust": "LOW",
+      "vol": "VOLATILE",
+      "vol_conf": 55.099998474121094,
+      "vol_acc": 63.7,
+      "vol_base": 59.7
+    }
+  ]
+}

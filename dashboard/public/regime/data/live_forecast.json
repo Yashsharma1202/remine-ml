@@ -1,0 +1,61 @@
+{
+  "generated": "2026-06-25 10:20 UTC",
+  "horizons": [
+    {
+      "name": "Intraday 5-min (~4h)",
+      "asof": "2026-06-19 12:40:00+05:30",
+      "close": 23960.8,
+      "trend": "SIDEWAYS",
+      "trend_conf": 55.141292572021484,
+      "dir_acc": 51.34101397788772,
+      "dir_base": 50.84099737707095,
+      "vol": "CALM",
+      "vol_conf": 63.495601654052734,
+      "vol_acc": 75.19837976028421,
+      "vol_base": 56.57691158404994,
+      "trend_trust": "LOW-TRUST"
+    },
+    {
+      "name": "Intraday 15-min (~4h)",
+      "asof": "2026-06-19 12:30:00+05:30",
+      "close": 23960.8,
+      "trend": "SIDEWAYS",
+      "trend_conf": 44.080589294433594,
+      "dir_acc": 51.84580137463891,
+      "dir_base": 50.86363183584023,
+      "vol": "VOLATILE",
+      "vol_conf": 58.453857421875,
+      "vol_acc": 74.34007371252117,
+      "vol_base": 56.96782548062556,
+      "trend_trust": "LOW-TRUST"
+    },
+    {
+      "name": "Weekly expiry (5d)",
+      "asof": "2026-06-19",
+      "close": 23960.8,
+      "trend": "BULLISH",
+      "trend_conf": 35.765438079833984,
+      "dir_acc": 39.67213114754099,
+      "dir_base": 38.55737704918033,
+      "vol": "VOLATILE",
+      "vol_conf": 52.1146125793457,
+      "vol_acc": 64.32786885245902,
+      "vol_base": 56.196721311475414,
+      "trend_trust": "LOW-TRUST"
+    },
+    {
+      "name": "Monthly expiry (21d)",
+      "asof": "2026-06-19",
+      "close": 23960.8,
+      "trend": "BULLISH",
+      "trend_conf": 42.42695999145508,
+      "dir_acc": 36.303630363036305,
+      "dir_base": 42.9042904290429,
+      "vol": "VOLATILE",
+      "vol_conf": 57.31658935546875,
+      "vol_acc": 59.009900990099005,
+      "vol_base": 56.03960396039604,
+      "trend_trust": "LOW-TRUST"
+    }
+  ]
+}
